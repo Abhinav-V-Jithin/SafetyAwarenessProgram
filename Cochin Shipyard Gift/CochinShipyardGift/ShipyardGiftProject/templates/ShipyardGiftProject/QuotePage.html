@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script type="text/javascript">
+		document.addEventListener('DOMContentLoaded', () =>
+		{
+			document.querySelector('#submit-button').disabled = true;
+			document.addEventListener('keyup', () =>
+			{
+				let input = document.querySelector('#exampleFormControlTextarea1').value;
+				let quote = "{{words}}";
+				let button= document.querySelector('#submit-button');
+				if(input.toUpperCase() == quote.toUpperCase())
+				{
+					button.disabled = false;
+				}
+				else
+				{
+					button.disabled = true;
+				}
+			});
+		});
+	</script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<title>Quotes</title>
+	<style>
+		#maincontent
+		{
+			font-family: sans-serif;
+		}
+		@media (min-width: 1200px)
+		{
+			body
+			{
+				background-image: url("https://wallpaperaccess.com/full/1320144.jpg");
+				background-size: 100%;
+			}
+			#maincontent
+			{
+				border-radius: 25px;
+				padding: 30px;
+				margin-top: 10%;
+				margin-left: 32.5%;
+				margin-right: 32.5%;
+				background: white;
+			}
+		}
+		@media (max-width:  1200px)
+		{
+			body
+			{
+				background-image: url("https://w0.peakpx.com/wallpaper/284/146/HD-wallpaper-waterfall-falls-landscape-tropical-water.jpg");
+				background-size: 100%;
+			}
+			#maincontent
+			{
+				border-radius: 25px;
+				padding: 30px;
+				margin-top: 25%;
+				margin-left: 10%;
+				margin-right: 10%;
+				background: white;
+			}
+		}
+		
+	</style>
+</head>
+<body oncopy="return false" oncut="return false" onpaste="return false">
+
+	<div id="maincontent">
+		<span align="center"><h3><u>Your Quote</u></h3><br></span>
+		<form action="WheelPage">
+			<h3>
+				<div id="words">{{ words }}</div>
+			</h3>
+			<br><br>
+			<div class="form-group">
+				<textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Enter the quote here"></textarea>
+				<small class="form-text text-muted">Please enter the quote in the above box to see what comes next!</small>
+				 <button type="submit" id="submit-button" class="btn btn-primary">Submit</button>
+			</div>
+		</form>
+	</div>
+</body>
+</html>
